@@ -52,4 +52,28 @@ class EditorController extends Controller
 	    BlogPost::post_delete($post_id);
 		return redirect()->route('home');
     }
+
+	/**
+	 * Upsert the POSTed record into the DB
+	 *
+	 * @param  Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
+    public function upsert(Request $request)
+    {
+	    $input = (object)$request->all();
+	    $post_id = $input->_id;
+
+	    if($post_id) {
+		    $post = BlogPost::post_retrieve($post_id);
+	    } else {
+		    $post = BlogPost::post_create();
+	    }
+	    Log::debug("Upserting post: ".($post_id or "NEW"));
+
+	    $post->store($request);
+
+	    //BlogPost::post_delete($post);
+		return redirect()->route('home');
+    }
 }

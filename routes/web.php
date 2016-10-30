@@ -30,4 +30,6 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('/post/new', 'EditorController@index');
 
+	Route::get('/post/save', 'EditorController@upsert');
+
 });

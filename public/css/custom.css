@@ -34,3 +34,7 @@
 .navbar-brand {
     padding-left: 50px;
 }
+
+.form-group {
+    margin-top: 10px !important;
+}

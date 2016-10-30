@@ -20,6 +20,7 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+
 </head>
 <body>
     <div id="app">
@@ -94,5 +95,7 @@
     <script src="/js/app.js"></script>
     <script src="/js/bootbox.min.js"></script>
     <script src="/js/custom.js"></script>
+
+    @yield('script_inset')
 </body>
 </html>

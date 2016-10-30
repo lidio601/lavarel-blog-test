@@ -12,5 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	Log::debug("Route called: listing blog posts");
+    return view('home');
 });
+
+Route::get('login', function () {
+	Log::debug("Route called: login form");
+	return view('login');
+});
+
+Auth::routes();
+
+Route::any('/editor', 'EditorController@index')->middleware('auth');

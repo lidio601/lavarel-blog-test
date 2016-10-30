@@ -1,13 +1,16 @@
 <div class="panel panel-default">
-    <div class="panel-heading">Panel heading without title</div>
-    <div class="panel-title">
-        <span>Hello, world!</span>
+    <div class="panel-heading">
+        <h4>{{ $post['title'] }}</h4>
+        <div class="panel-title text-right">
+            <span>{{ $post['date'] }}</span>
+        </div>
     </div>
     <div class="panel-body">
         <div class="jumbotron">
-            <h1>Hello, world!</h1>
-            <p>CACCAPUPU</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+            <div class="post-body-content">
+                {!! $post['body'] !!}
+            </div>
+            <p><a class="btn btn-primary btn-lg" href="{{ $post['href'] }}" role="button">Learn more</a></p>
         </div>
     </div>
 </div>

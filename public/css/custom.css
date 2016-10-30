@@ -1,0 +1,32 @@
+.post-body-content img {
+    max-width: 300px !important;
+    height: auto !important;
+    text-align: center;
+    white-space: nowrap;
+    word-wrap: break-word;
+}
+
+.post-body-content div {
+    width: auto !important;
+}
+
+.post-body-content,
+.post-body-content p,
+.post-body-content div,
+.post-body-content strong {
+    font-size: 100% !important;
+    font-weight: 300 !important;;
+}
+
+.navbar-logo {
+
+}
+
+.navbar-logo img {
+    width: auto;
+    height: 40px;
+}
+
+.navbar-brand {
+    padding-left: 50px;
+}

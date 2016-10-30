@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\BlogPost;
 
 class HomeController extends Controller
 {
@@ -24,8 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-	    $view = view('home');
-	    $view->posts = DB::connection('mongodb')->collection('post')->get();
-	    return $view;
+	    //$posts = DB::connection('mongodb')->collection('post')->paginate(3);
+	    $posts = BlogPost::post_list();
+	    return view('home', ['posts' => $posts]);
+	    //$view->posts = DB::connection('mongodb')->collection('post')->get();
     }
 }

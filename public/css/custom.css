@@ -1,3 +1,7 @@
+.post-body-content {
+    margin-top: 10px;
+}
+
 .post-body-content img {
     max-width: 300px !important;
     height: auto !important;

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -37,7 +37,7 @@
 
                     <!-- Branding Image -->
                     <div class="navbar-logo pull-left">
-                        <img src="images/logo.png">
+                        <img src="/images/logo.png">
                     </div>
                     <a class="navbar-brand pull-left" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
@@ -92,5 +92,7 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <script src="/js/bootbox.min.js"></script>
+    <script src="/js/custom.js"></script>
 </body>
 </html>

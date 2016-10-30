@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('login', function () {
 	Log::debug("Route called: login form");
@@ -20,4 +20,14 @@ Route::get('login', function () {
 
 Auth::routes();
 
-Route::any('/editor', 'EditorController@index')->middleware('auth');
+Route::group(['middleware' => 'auth'], function () {
+
+	Route::any('/editor', 'EditorController@index');
+
+	Route::get('/post/delete/{post_id}', 'EditorController@delete');
+
+	Route::get('/post/edit/{post_id}', 'EditorController@edit');
+
+	Route::get('/post/new', 'EditorController@index');
+
+});

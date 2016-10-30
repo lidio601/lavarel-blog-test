@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
 use App\BlogPost;
 
 class HomeController extends Controller
@@ -26,7 +25,6 @@ class HomeController extends Controller
     public function index()
     {
 	    $posts = BlogPost::post_list();
-
 	    return view('home', ['posts' => $posts]);
     }
 }

@@ -49,6 +49,15 @@ class BlogPost extends Eloquent
 	public static function post_list()
 	{
 		//return DB::connection('mongodb')->collection('post')->paginate(3);
-		return BlogPost::orderBy('date', 'desc')->paginate(3);
+		return BlogPost::orderBy('date', 'desc')->whereNull('deleted_at')->paginate(3);
+	}
+
+	public static function post_delete($post_id) {
+		BlogPost::where('_id', $post_id)->delete();
+	}
+
+	public static function post_retrieve($post_id)
+	{
+		return BlogPost::whereNull('deleted_at')->where('id', $post_id)->get();
 	}
 }

@@ -3,9 +3,12 @@
 namespace App;
 
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
 
 class BlogPost extends Eloquent
 {
+	use SoftDeletes;
 
 	/**
 	 * The database connection associated with the model.
@@ -28,9 +31,24 @@ class BlogPost extends Eloquent
 	 */
 	protected $dateFormat = 'U';
 
-	public static function post_list() {
+	/**
+	 * The attributes that should be mutated to dates.
+	 *
+	 * @var array
+	 */
+	protected $dates = ['deleted_at'];
+
+	/**
+	 * the fieldname is date
+	 */
+	public function getDateAttribute()
+	{
+		return Carbon::parse($this->attributes['date']);
+	}
+
+	public static function post_list()
+	{
 		//return DB::connection('mongodb')->collection('post')->paginate(3);
 		return BlogPost::orderBy('date', 'desc')->paginate(3);
 	}
-
 }

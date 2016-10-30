@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-
+	    //
     }
 
     /**
@@ -25,9 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-	    //$posts = DB::connection('mongodb')->collection('post')->paginate(3);
 	    $posts = BlogPost::post_list();
+
 	    return view('home', ['posts' => $posts]);
-	    //$view->posts = DB::connection('mongodb')->collection('post')->get();
     }
 }

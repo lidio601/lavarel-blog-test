@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-	Log::debug("Route called: listing blog posts");
-    return view('home');
-});
+Route::get('/', 'HomeController@index');
 
 Route::get('login', function () {
 	Log::debug("Route called: login form");
